@@ -21,3 +21,7 @@ SELECT title -- , `length` (si quisiéramos visualizar también la duración)
 FROM film
 WHERE `length` > 120; -- Las tildes inversas se usan para evitar conflictos con palabras reservadas del SQL o para nombres de columnas que contienen caracteres especiales (como espacios por ejemplo).
 
+-- 5. Recupera los nombres de todos los actores.
+SELECT first_name AS names
+FROM actor;
+
