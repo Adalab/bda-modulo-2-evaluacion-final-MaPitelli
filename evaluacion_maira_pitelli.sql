@@ -84,3 +84,15 @@ SELECT actor_id
 FROM actor
 WHERE actor_id NOT IN (SELECT DISTINCT actor_id FROM film_actor);
 
+-- 16. Encuentra el título de todas las películas que fueron lanzadas entre el año 2005 y 2010.
+SELECT title, release_year 
+FROM film AS f 
+WHERE release_year BETWEEN 2005 AND 2010;
+
+-- 17. Encuentra el título de todas las películas que son de la misma categoría que "Family".
+SELECT f.title -- , c.name
+FROM film AS f 
+LEFT JOIN film_category AS fc ON f.film_id = fc.film_id 
+LEFT JOIN category AS c ON fc.category_id = c.category_id
+WHERE c.name = 'Family';
+
