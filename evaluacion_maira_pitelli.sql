@@ -31,3 +31,8 @@ FROM actor
 WHERE last_name LIKE '%Gibson%';
 -- Uso el LIKE en lugar de last_name = 'Gibson' para asegurar que la consulta encontrará todos los actores cuyo apellido contenga "Gibson" en cualquier posición, lo que es útil para manejar apellidos compuestos o que incluyan "Gibson" como parte del apellido.
 
+-- 7. Encuentra los nombres de los actores que tengan un actor_id entre 10 y 20.
+SELECT first_name AS names -- , actor_id (si quisiéramos visualizar también el actor_id)
+FROM actor
+WHERE actor_id BETWEEN 10 AND 20;
+
