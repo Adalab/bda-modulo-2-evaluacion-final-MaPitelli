@@ -109,3 +109,30 @@ SELECT title
 FROM film 
 WHERE rating = 'R' AND `length` > 120;
 
+-- 20. Encuentra las categorías de películas que tienen un promedio de duración superior a 120 minutos y muestra el nombre de la categoría junto con el promedio de duración.
+SELECT m.name, m.duration_mean
+FROM (SELECT ROUND(AVG(f.`length`), 2) AS duration_mean, c.name 
+	  FROM category AS c 
+	  INNER JOIN film_category AS fc ON c.category_id = fc.category_id 
+	  INNER JOIN film AS f ON fc.film_id = f.film_id 
+	  GROUP BY c.category_id, c.name) AS m
+WHERE m.duration_mean > 120;
+
+-- 21. Encuentra los actores que han actuado en al menos 5 películas y muestra el nombre del actor junto con la cantidad de películas en las que han actuado.
+SELECT f.first_name, f.total_quantity
+FROM (SELECT a.first_name, a.last_name, COUNT(fa.film_id) AS total_quantity
+	  FROM actor AS a 
+	  INNER JOIN film_actor AS fa ON a.actor_id = fa.actor_id
+	  GROUP BY a.actor_id, a.first_name, a.last_name) AS f
+WHERE f.total_quantity >= 5
+ORDER BY f.total_quantity;
+
+-- 22. Encuentra el título de todas las películas que fueron alquiladas por más de 5 días. Utiliza una subconsulta para encontrar los rental_ids con una duración superior a 5 días y luego selecciona las películas correspondientes.
+SELECT DISTINCT f.title
+FROM film AS f 
+LEFT JOIN inventory AS i ON f.film_id = i.film_id 
+LEFT JOIN rental AS r ON i.inventory_id = r.inventory_id 
+WHERE r.rental_id IN (SELECT rental_id 
+ 					  FROM rental AS r 
+					  WHERE DAY(return_date) - DAY(rental_date) > 5);
+
