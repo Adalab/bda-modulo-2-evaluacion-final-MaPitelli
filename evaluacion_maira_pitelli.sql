@@ -25,3 +25,9 @@ WHERE `length` > 120; -- Las tildes inversas se usan para evitar conflictos con 
 SELECT first_name AS names
 FROM actor;
 
+-- 6. Encuentra el nombre y apellido de los actores que tengan "Gibson" en su apellido.
+SELECT first_name AS name, last_name AS surname
+FROM actor
+WHERE last_name LIKE '%Gibson%';
+-- Uso el LIKE en lugar de last_name = 'Gibson' para asegurar que la consulta encontrará todos los actores cuyo apellido contenga "Gibson" en cualquier posición, lo que es útil para manejar apellidos compuestos o que incluyan "Gibson" como parte del apellido.
+
