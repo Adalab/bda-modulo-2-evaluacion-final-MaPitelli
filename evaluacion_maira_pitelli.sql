@@ -36,3 +36,8 @@ SELECT first_name AS names -- , actor_id (si quisiéramos visualizar también el
 FROM actor
 WHERE actor_id BETWEEN 10 AND 20;
 
+-- 8. Encuentra el título de las películas en la tabla film que no sean ni "R" ni "PG-13" en cuanto a su clasificación.
+SELECT title -- , rating (si quisiéramos visualizar también la clasificación)
+FROM film
+WHERE rating NOT IN ('R', 'PG-13');
+
