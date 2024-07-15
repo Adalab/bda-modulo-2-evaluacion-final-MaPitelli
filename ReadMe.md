@@ -1,10 +1,10 @@
-# Evaluación Final del Módulo 2
+# Evaluación Final del Módulo 2 📊
 
-## Objetivo
+## Objetivo 🎯
 
 El objetivo de esta evaluación es comprobar la comprensión y habilidades en SQL mediante la resolución de una serie de ejercicios prácticos. Utilizaremos la base de datos Sakila, una base de datos de ejemplo que simula una tienda de alquiler de películas, para realizar consultas y análisis de datos en el contexto de una tienda de alquiler de películas.
 
-## Estructura
+## Estructura 🏗️
 
 La base de datos Sakila incluye las siguientes tablas:
 
@@ -25,11 +25,11 @@ La base de datos Sakila incluye las siguientes tablas:
 15. **staff**: Contiene información sobre el personal, incluyendo identificador único, nombre, apellido, dirección, imagen, correo electrónico, tienda asignada, estado de actividad, nombre de usuario, contraseña y la fecha de la última actualización.
 16. **store**: Almacena información sobre las tiendas, incluyendo identificador único, personal de gestión, dirección y la fecha de la última actualización.
 
-## Diagrama de la Base de Datos Sakila
+## Diagrama de la Base de Datos Sakila 📜
 
 ![Diagrama Sakila](images/sakila_diagram.png)
 
-## Herramientas
+## Herramientas 🛠️
 
 ### DBeaver
 
@@ -42,7 +42,7 @@ La base de datos Sakila incluye las siguientes tablas:
 - **Compatibilidad**: Funciona con una amplia gama de sistemas de gestión de bases de datos (DBMS) como MySQL, PostgreSQL, Oracle, SQL Server, y más.
 - **Funciones avanzadas**: Soporta edición de datos, visualización de esquemas, ejecución de scripts SQL, y generación de informes.
 
-## Temas de SQL Aprendidos
+## Temas de SQL Aprendidos 📚
 
 Aquí hay un resumen de los temas que se han aprendido y aplicado:
 
@@ -79,7 +79,7 @@ Aquí hay un resumen de los temas que se han aprendido y aplicado:
    - **LIMIT**: Limitar el número de registros devueltos por una consulta.
 
 
-### Ejemplos de Análisis realizados con SQL
+### Ejemplos de Análisis realizados con SQL 🔍
 
 #### 1. Selecciona todos los nombres de las películas sin que aparezcan duplicados.
 Para obtener los nombres de las películas sin duplicados, se utilizó la cláusula SQL `DISTINCT`.
