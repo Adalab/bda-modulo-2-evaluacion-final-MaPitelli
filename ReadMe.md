@@ -44,7 +44,7 @@ La base de datos Sakila incluye las siguientes tablas:
 
 ## Temas de SQL Aprendidos
 
-A lo largo de este módulo, se han cubierto y practicado varios conceptos y técnicas de SQL. Aquí hay un resumen de los temas que se han aprendido y aplicado:
+Aquí hay un resumen de los temas que se han aprendido y aplicado:
 
 1. **Sintaxis SQL básica**:
    - **SELECT**: Cómo seleccionar columnas específicas de una tabla.
