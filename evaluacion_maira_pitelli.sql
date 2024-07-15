@@ -153,3 +153,41 @@ INNER JOIN film_category AS fc ON f.film_id = fc.film_id
 INNER JOIN category AS c ON fc.category_id = c.category_id 
 WHERE c.name = 'Comedy' AND f.`length` > 180;
 
+-- 25. BONUS: Encuentra todos los actores que han actuado juntos en al menos una película. La consulta debe mostrar el nombre y apellido de los actores y el número de películas en las que han actuado juntos.
+
+-- Paso 1: Creación de una doble tabla usando film_actor
+-- Hacemos un self-join de la tabla film_actor con ella misma para tener acceso a las parejas de actores que han actuado en las mismas películas.
+SELECT * 
+FROM film_actor AS fa1
+JOIN film_actor AS fa2 ON fa1.film_id = fa2.film_id
+
+-- Paso 2: Seleccionamos las parejas de actores desde las distintas tablas y creamos una columna nueva, movies_together, que devuelve el recuento de películas en las que la pareja de actores ha trabajado.
+-- La condición en el WHERE asegura que el id del actor1 será siempre menor que el id del actor2, para evitar comparar un actor consigo mismo y evitar duplicados.
+-- Agrupamos por actor1_id y actor2_id, siguiendo la buena práctica en SQL de agrupar por las columnas que no se utilizan en funciones de agregación.
+-- Finalmente, añadimos un HAVING para cumplir con el requisito de encontrar actores que han actuado juntos en al menos una película.
+SELECT fa1.actor_id AS actor1, fa2.actor_id AS actor2, COUNT(fa1.film_id) AS movies_together
+FROM film_actor AS fa1
+JOIN film_actor AS fa2 ON fa1.film_id = fa2.film_id
+WHERE fa1.actor_id < fa2.actor_id
+GROUP BY fa1.actor_id, fa2.actor_id
+HAVING COUNT(fa1.film_id) > 0
+
+-- Paso 3: Usamos el resultado de la consulta anterior para crear una CTE llamada actor_pairs:
+WITH actor_pairs AS (SELECT fa1.actor_id AS actor1, fa2.actor_id AS actor2, COUNT(fa1.film_id) AS movies_together
+					 FROM film_actor AS fa1
+					 JOIN film_actor AS fa2 ON fa1.film_id = fa2.film_id
+					 WHERE fa1.actor_id < fa2.actor_id
+					 GROUP BY fa1.actor_id, fa2.actor_id
+					 HAVING COUNT(fa1.film_id) > 0)
+					 
+-- Paso 4: Creamos la consulta final, usando la CTE
+-- Para seleccionar el nombre completo del actor1 y el nombre completo del actor2 es necesario hacer un doble join con la tabla actor, 
+-- donde en uno de los joins la unión se hace por la columna actor1_id de la CTE y en el otro por la columna actor2_id, que representan los ids de la pareja de actores.
+-- Finalmente añadimos el recuento de las parejas ap.movies_together en el select y ordenamos el resultado final por la columna movies_together en orden descendente.				 
+SELECT a1.first_name AS A1_name, a1.last_name AS A1_surname,
+       a2.first_name AS A2_name, a2.last_name AS A2_surname,
+       ap.movies_together
+FROM actor_pairs AS ap
+JOIN actor AS a1 ON ap.actor1 = a1.actor_id
+JOIN actor AS a2 ON ap.actor2 = a2.actor_id
+ORDER BY ap.movies_together DESC;
