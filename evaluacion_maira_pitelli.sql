@@ -34,7 +34,7 @@ WHERE last_name LIKE '%Gibson%';
 -- 7. Encuentra los nombres de los actores que tengan un actor_id entre 10 y 20.
 SELECT first_name AS names -- , actor_id (si quisiéramos visualizar también el actor_id)
 FROM actor
-WHERE actor_id BETWEEN 10 AND 20;
+WHERE actor_id BETWEEN 10 AND 20; -- Esta opción incluye ambos extremos, si no quisiéramos incluir los extremos, seria BETWEEN 11 AND 19;
 
 -- 8. Encuentra el título de las películas en la tabla film que no sean ni "R" ni "PG-13" en cuanto a su clasificación.
 SELECT title -- , rating (si quisiéramos visualizar también la clasificación)
