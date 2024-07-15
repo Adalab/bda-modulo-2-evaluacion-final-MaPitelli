@@ -79,7 +79,7 @@ Aquí hay un resumen de los temas que se han aprendido y aplicado:
    - **LIMIT**: Limitar el número de registros devueltos por una consulta.
 
 
-### Ejemplos de Análisis realizados con SQL 🔍
+## Ejemplos de Análisis realizados con SQL 🔍
 
 #### 1. Selecciona todos los nombres de las películas sin que aparezcan duplicados.
 Para obtener los nombres de las películas sin duplicados, se utilizó la cláusula SQL `DISTINCT`.
