@@ -81,61 +81,16 @@ Aquí hay un resumen de los temas que se han aprendido y aplicado:
 
 ## Ejemplos de Análisis realizados con SQL 🔍
 
-#### 1. Selecciona todos los nombres de las películas sin que aparezcan duplicados.
-Para obtener los nombres de las películas sin duplicados, se utilizó la cláusula SQL `DISTINCT`.
-
-#### 2. Encuentra el título y la descripción de todas las películas que contengan la palabra "amazing" en su descripción.
-Para encontrar películas con la palabra "amazing" en la descripción, se utilizó la cláusula `LIKE`.
-
-#### 3. Encuentra el título de todas las películas que tengan una duración mayor a 120 minutos.
-Se obtuvieron los títulos de las películas con una duración superior a 120 minutos utilizando la cláusula `WHERE`.
-
-#### 4. Encuentra los nombres de los actores que tengan un actor_id entre 10 y 20.
-Se seleccionaron los nombres de los actores cuyo `actor_id` está comprendido entre 10 y 20 utilizando la cláusula `BETWEEN`.
-
-#### 5. Encuentra el título de las películas en la tabla film que no sean ni "R" ni "PG-13" en cuanto a su clasificación.
-Se obtuvieron los títulos de las películas cuya clasificación no es ni "R" ni "PG-13" utilizando la cláusula `WHERE NOT IN`.
-
-#### 6. Encuentra la cantidad total de películas alquiladas por cada cliente y muestra el ID del cliente, su nombre y apellido junto con la cantidad de películas alquiladas.
-Se calculó la cantidad total de películas alquiladas por cada cliente, mostrando el ID del cliente, su nombre y apellido, utilizando `COUNT` y `GROUP BY`.
-
-#### 7. Cantidad total de películas alquiladas por categoría
-Se utilizó `COUNT`, `INNER JOIN` y `GROUP BY` para calcular la cantidad total de películas alquiladas por cada categoría, mostrando el nombre de la categoría.
-
-#### 8. Promedio de duración de películas por clasificación
-Se calculó el promedio de la duración de las películas utilizando `AVG`, `ROUND`, y `GROUP BY` para mostrar el promedio de duración junto con la clasificación.
-
-#### 9. Actores en la película "Indian Love"
-Se usó `INNER JOIN`, `WHERE` y `USING` para encontrar el nombre y apellido de los actores que aparecen en la película con título "Indian Love".
-
-#### 10. Películas con palabras clave en la descripción
-Se empleó `LIKE` y `OR` para mostrar el título y la descripción de las películas que contienen las palabras "dog" o "cat" en su descripción.
-
-#### 11. Actores no asociados a ninguna película en film_actor
-Se utilizó `NOT IN`, `SELECT DISTINCT`, y `WHERE` para identificar actores que no aparecen en ninguna película según la tabla `film_actor`.
-
-#### 12. Películas de la misma categoría que "Family"
-Se empleó `LEFT JOIN`, `WHERE` y `ON` para encontrar el título de todas las películas que pertenecen a la misma categoría que la película con nombre "Family".
-
-#### 13. Actores en más de 10 películas
-Se utilizó una subconsulta con `INNER JOIN`, `GROUP BY` y `COUNT` para encontrar el nombre y apellido de los actores que han actuado en más de 10 películas.
-
-#### 14. Categorías de películas con promedio de duración superior a 120 minutos
-Se utilizó una subconsulta con `INNER JOIN`, `ROUND`, `AVG` y `GROUP BY` para encontrar el nombre de las categorías de películas que tienen un promedio de duración superior a 120 minutos.
-
-#### 15. Actores que han actuado en al menos 5 películas
-Se utilizó una subconsulta con `INNER JOIN`, `GROUP BY`, `COUNT` y `ORDER BY` para encontrar el nombre de los actores que han actuado en al menos 5 películas, junto con la cantidad de películas en las que han actuado.
-
-#### 16. Películas alquiladas por más de 5 días
-Se utilizó `LEFT JOIN`, `DISTINCT`, y una subconsulta con `WHERE` para encontrar el título de todas las películas que fueron alquiladas por más de 5 días.
-
-#### 17. Actores que no han actuado en películas de la categoría "Horror"
+#### 1. Actores que no han actuado en películas de la categoría "Horror"
 Se utilizó `NOT IN`, una subconsulta con `INNER JOIN` y `WHERE` para encontrar el nombre y apellido de los actores que no han actuado en ninguna película de la categoría "Horror".
 
-#### 18. Películas que son comedias y tienen una duración mayor a 180 minutos
-Se utilizó `INNER JOIN`, `WHERE`, y `AND` para encontrar el título de las películas que son comedias y tienen una duración mayor a 180 minutos.
+#### 2. Actores que han actuado en al menos 5 películas
+Se utilizó una subconsulta con `INNER JOIN`, `GROUP BY`, `COUNT` y `ORDER BY` para encontrar el nombre de los actores que han actuado en al menos 5 películas, junto con la cantidad de películas en las que han actuado.
 
-#### 19. Actores que han actuado juntos en al menos una película
+#### 3. Categorías de películas con promedio de duración superior a 120 minutos
+Se utilizó una subconsulta con `INNER JOIN`, `ROUND`, `AVG` y `GROUP BY` para encontrar el nombre de las categorías de películas que tienen un promedio de duración superior a 120 minutos.
+
+#### 4. Actores que han actuado juntos en al menos una película
 Para encontrar los actores que han actuado juntos en al menos una película, se realizó un proceso en varias etapas:
 
 1. **Creación de una doble tabla usando film_actor**: Se realizó un self-join de la tabla `film_actor` consigo misma para obtener las parejas de actores que han trabajado en las mismas películas.
@@ -146,4 +101,8 @@ Para encontrar los actores que han actuado juntos en al menos una película, se 
 
 4. **Consulta final**: Se realizó un join con la tabla `actor` dos veces para obtener el nombre completo de cada actor en las parejas. Se ordenó el resultado por el número de películas en las que han actuado juntos en orden descendente.
 
+---
+
 Estas preguntas fueron contestadas mediante consultas SQL que demuestran el dominio de diversas técnicas y funciones avanzadas de SQL, incluyendo la manipulación y consulta de datos, la utilización de subconsultas y la ejecución de operaciones de agregación y filtrado.
+
+Si quieres ver más sobre mi trabajo te invito a ver más ejemplos como estos dentro de este repo! [➡️](https://github.com/Adalab/bda-modulo-2-evaluacion-final-MaPitelli/blob/main/evaluacion_maira_pitelli.sql)
